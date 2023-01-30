@@ -1,0 +1,45 @@
+﻿@model UsuarioModel
+@{
+    ViewData["Title"] = "Editar Usuário";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Editar Usuário</h1>
+
+</div>
+
+<form asp-controller="Usuario" asp-action="Alterar" method="post">
+    <!-- nao deixar visivel o id-->
+    <input type="hidden" asp-for="UsuarioID" />
+    <div class="mb-3">
+        <label for="nome">Nome</label>
+        <input type="text" asp-for="UsuarioNome" class="form-control" placeholder="Digite seu Nome">
+        @Html.ValidationMessageFor(x =>x.UsuarioNome)
+    </div>
+
+    <div class="mb-3">
+        <label for="login">Login</label>
+        <input type="text" asp-for="Login" class="form-control" placeholder="Digite seu Login">
+        @Html.ValidationMessageFor(x =>x.Login)
+    </div>
+
+    <div class="mb-3">
+        <label for="email">Email </label>
+        <input type="text" asp-for="Email" class="form-control" placeholder="Digite seu Email" />
+        @Html.ValidationMessageFor(x =>x.Email)
+    </div>
+
+    <div class="mb-3">
+        <label for="Senha">Senha</label>
+        <input type="password" asp-for="Senha" class="form-control" placeholder="Digite sua senha">
+        @Html.ValidationMessageFor(x =>x.Senha)
+    </div>
+
+    <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-primary ">
+           Alterar Senha
+        </button>
+        <a class="btn btn-secondary" asp-controller="Usuario" asp-action="Index" role="button">Voltar</a>
+    </div>
+
+</form>
